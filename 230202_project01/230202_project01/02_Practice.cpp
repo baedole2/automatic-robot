@@ -21,7 +21,9 @@ int main()
 	double score[5] = { };
 	double totalScore =0;
 
-	for (int i = 0; i < 5; i++)
+	int byte = sizeof(score) / sizeof(score[0]);
+
+	for (int i = 0; i < byte; i++)
 	{
 		std::cout << student[i] << " 학생의 점수를 입력하세요. : ";
 		std::cin >> score[i];
@@ -33,5 +35,6 @@ int main()
 	}
 
 	// totalScore/5  이부분을 숫자 5 대신 학생 수의 값을 따오고 싶은데 어떻게하면 좋을까요?
-	std::cout << "성적 평균 : " << totalScore / 5;
+	std::cout << "성적 평균 : " << totalScore / byte;
+
 }
