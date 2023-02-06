@@ -15,16 +15,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="230202_project01.cpp">
+    <ClCompile Include="230201_project01.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="01_Practice01.cpp">
+    <ClCompile Include="01_variable.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="02_Function.cpp">
+    <ClCompile Include="02_PlusMinus.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="03_Pratice02.cpp">
+    <ClCompile Include="03_IF.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="04_Practice.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

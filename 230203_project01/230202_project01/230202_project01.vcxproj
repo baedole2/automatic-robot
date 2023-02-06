@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{ac9ddc59-4047-4a17-9cca-58888da3e925}</ProjectGuid>
+    <ProjectGuid>{6526c006-e2e7-45e8-b790-6de36b9579c5}</ProjectGuid>
     <RootNamespace>My230202project01</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -127,9 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="01_Practice01.cpp" />
-    <ClCompile Include="02_Function.cpp" />
-    <ClCompile Include="03_Pratice02.cpp" />
+    <ClCompile Include="01_array.cpp" />
+    <ClCompile Include="02_Practice.cpp" />
     <ClCompile Include="230202_project01.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
