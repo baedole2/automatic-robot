@@ -130,6 +130,8 @@
     <ClCompile Include="01_struct.cpp" />
     <ClCompile Include="02_Practice01.cpp" />
     <ClCompile Include="03_Class.cpp" />
+    <ClCompile Include="04_Practice02.cpp" />
+    <ClCompile Include="05_Practice03.cpp" />
     <ClCompile Include="230208_project01.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
