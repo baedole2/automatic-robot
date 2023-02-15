@@ -12,54 +12,53 @@ using std::cout;
 using std::cin;
 using std::endl;
 
-
-
 int main() {
 	std::srand(time(NULL));	// 랜덤 난수
 
 	int input;
-	int com_input;
 	int num = 0;
 	bool isGameOver = false;
-	bool isPlayerWin = false;
+	bool isPlayerLose = false;
+	bool isPlayerTurn = true;
 
 	cout << "배스킨 라빈스 31 게임" << endl;
-	
-	while (isGameOver == false) {
-		cout << "--------------------" << endl;
-		cout << "숫자를 입력하세요 ( 1-3 ) : ";
-		cin >> input;
 
-		if (input == 1 || input == 2 || input == 3) {
-			cout << "사용자가 숫자 " << input << "개를 선언했습니다." << endl;
+	while (isGameOver == false) {
+		if (isPlayerTurn == true) {
+			cout << "--------------------" << endl;
+			cout << "숫자를 입력하세요 ( 1-3 ) : ";
+			cin >> input;
+		}
+		else
+			input = rand() % 3 + 1;
+
+		if (input >= 1 && input <= 3) {
+			(isPlayerTurn) ? cout << "사용자" : cout << "컴퓨터";
+			cout << " 가 숫자 " << input << "개를 선언했습니다." << endl;
 			for (int i = 0; i < input; i++) {
 				cout << ++num << " ";
-				if (num == 31){
+				if (num == 31 && isPlayerTurn == true) {
 					isGameOver = true;
-					isPlayerWin = true;
+					isPlayerLose = true;
+					break;
+				}
+				else if (num == 31 && isPlayerTurn == false){
+					isGameOver = true;
+					isPlayerLose = false;
 					break;
 				}
 			}
-			cout  << endl << endl;
-			com_input = rand() % 3 + 1;	// 1~3 범위 난수
-			if (isGameOver == false) {
-				cout << "컴퓨터가 숫자 " << com_input << "개를 선언했습니다." << endl;
-				for (int i = 0; i < com_input; i++) {
-					cout << ++num << " ";
-					if (num == 31) {
-						isGameOver = true;
-						break;
-					}
-				}
-			}
 			cout << endl;
+			if (isGameOver == true)	// 게임종료 만족시 탈출
+				break;
 		}
 		else {
-			cout << "입력값을 벗어났습니다. 사이의 숫자만 입력하세요." << endl;
+			cout << "입력값을 벗어났습니다. 1-3 사이의 숫자만 입력하세요." << endl;
 		}
+		isPlayerTurn = !isPlayerTurn;
 	}
 
-	(isPlayerWin == true) ?
+	(isPlayerLose == true) ?
 		cout << endl << "게임 종료. 컴퓨터 의 승리입니다." << endl
 		: cout << endl << "게임 종료. 사용자 의 승리입니다." << endl;
 }
