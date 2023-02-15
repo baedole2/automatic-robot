@@ -28,36 +28,35 @@ int main() {
 			cout << "--------------------" << endl;
 			cout << "숫자를 입력하세요 ( 1-3 ) : ";
 			cin >> input;
+
+			if (input < 1 && input > 3) {
+				cout << "입력값을 벗어났습니다. 1-3 사이의 숫자만 입력하세요." << endl;
+				continue;
+			}
 		}
 		else
 			input = rand() % 3 + 1;
 
-		if (input >= 1 && input <= 3) {
-			(isPlayerTurn) ? cout << "사용자" : cout << "컴퓨터";
-			cout << " 가 숫자 " << input << "개를 선언했습니다." << endl;
-			for (int i = 0; i < input; i++) {
-				cout << ++num << " ";
-				if (num == 31 && isPlayerTurn == true) {
-					isGameOver = true;
-					isPlayerLose = true;
-					break;
-				}
-				else if (num == 31 && isPlayerTurn == false){
-					isGameOver = true;
-					isPlayerLose = false;
-					break;
-				}
-			}
-			cout << endl;
-			if (isGameOver == true)	// 게임종료 만족시 탈출
+		(isPlayerTurn) ? cout << "사용자" : cout << "컴퓨터";
+		cout << " 가 숫자 " << input << "개를 선언했습니다." << endl;
+		for (int i = 0; i < input; i++) {
+			cout << ++num << " ";
+			if (num == 31 && isPlayerTurn == true) {
+				isGameOver = true;
+				isPlayerLose = true;
 				break;
+			}
+			else if (num == 31 && isPlayerTurn == false) {
+				isGameOver = true;
+				isPlayerLose = false;
+				break;
+			}
 		}
-		else {
-			cout << "입력값을 벗어났습니다. 1-3 사이의 숫자만 입력하세요." << endl;
-		}
+		cout << endl;
+		if (isGameOver == true)	// 게임종료 만족시 탈출
+			break;
 		isPlayerTurn = !isPlayerTurn;
 	}
-
 	(isPlayerLose == true) ?
 		cout << endl << "게임 종료. 컴퓨터 의 승리입니다." << endl
 		: cout << endl << "게임 종료. 사용자 의 승리입니다." << endl;
