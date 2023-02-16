@@ -18,9 +18,10 @@ int main() {
 	string word_save = "airplane";	// 쭉 보여주는 칸
 	bool isGameOver = false;
 
-	cout << "끝말잇기 게임" << endl;
+	cout << "끝말잇기 게임" << endl << "30초 안에 마구마구 영단어를 입력하세요!" << endl;
+	clock_t startTime = clock();
 	while (isGameOver == false) {
-		clock_t startTime = clock();
+		
 		cout << word_save << endl;	// 단어 모음 계속 보여줌
 		cout << "다음 단어를 입력하세요. : ";
 		cin >> input;
