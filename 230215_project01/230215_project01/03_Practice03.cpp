@@ -37,7 +37,6 @@ int main() {
 			i--;
 			continue;
 		}
-
 		for (int j = 0; j < i; j++) {
 			if (num[i] == num[j]) {	// 만든수를 중복검사_사용자
 				cout << "이미 입력된 숫자입니다. 다시 입력해주세요." << endl;
@@ -46,7 +45,6 @@ int main() {
 			}
 		}
 	}
-
 	for (int i = 0; i < 6; i++) {
 		random_num = std::rand() % 25 + 1;	//	난수생성
 		com_num.push_back(random_num);
@@ -57,8 +55,7 @@ int main() {
 			}
 		}
 	}
-
-	cout << "당첨번호 공개!" << endl;
+	cout << "--------------------\n당첨번호 공개!" << endl;
 
 	for (int i = 0; i < num.size(); i++) {
 		for (int j = 0; j < com_num.size(); j++) {
