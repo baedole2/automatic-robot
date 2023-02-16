@@ -21,11 +21,20 @@ int main() {
 	cout << "끝말잇기 게임" << endl << "30초 안에 마구마구 영단어를 입력하세요!" << endl;
 	clock_t startTime = clock();
 	while (isGameOver == false) {
-		
+
 		cout << word_save << endl;	// 단어 모음 계속 보여줌
 		cout << "다음 단어를 입력하세요. : ";
 		cin >> input;
 
+		clock_t endTime = clock();
+		int elapsedTime = (endTime - startTime) / CLOCKS_PER_SEC;
+		cout << "입력까지 걸린 시간 : " << elapsedTime << endl << endl;
+
+		if (elapsedTime >= 30) {	// 시간초과 패배
+			cout << "30초를 초과하였습니다. 타임 오버!" << endl;
+			isGameOver = true;
+			continue;
+		}
 		int word_size = word.size();
 		if (word[word_size - 1] == input[0]) {// 제시어의 제일 끝과 입력의 제일 앞부분 일치 비교
 			word = input;
@@ -36,16 +45,6 @@ int main() {
 			cout << "잘못된 입력입니다. " << endl << endl;
 			wrong_count++;
 			(wrong_count >= 3) ? isGameOver = true : isGameOver = false;
-			continue;
-		}
-
-		clock_t endTime = clock();
-		int elapsedTime = (endTime - startTime) / CLOCKS_PER_SEC;
-		cout << "입력까지 걸린 시간 : " << elapsedTime << endl << endl;
-
-		if (elapsedTime >= 30) {	// 시간초과 패배
-			cout << "30초를 초과하였습니다. 타임 오버!" << endl;
-			isGameOver = true;
 			continue;
 		}
 	}
