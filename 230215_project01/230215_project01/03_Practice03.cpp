@@ -20,6 +20,7 @@ int main() {
 	int input;
 	int random_num;
 	int prize = 0;
+	int count = 6;
 	vector<int> num;
 	vector<int> com_num;
 
@@ -27,11 +28,11 @@ int main() {
 
 	cout << "숫자는 1 ~ 25 까지의 숫자만 입력할 수 있습니다." << endl;
 
-	for (int i = 0; i < 6; i++) {
-		cout << i+1 << "번째 번호를 입력하세요. : ";
+	for (int i = 0; i < count; i++) {
+		cout << i + 1 << "번째 번호를 입력하세요. : ";
 		cin >> input;
-		if(input >=1 && input <= 25)
-		num.push_back(input);
+		if (input >= 1 && input <= 25)
+			num.push_back(input);
 		else {
 			cout << "잘못된 입력입니다. 다시 입력해주세요." << endl;
 			i--;
@@ -45,11 +46,11 @@ int main() {
 			}
 		}
 	}
-	for (int i = 0; i < 6; i++) {
+	for (int i = 0; i < count; i++) {
 		random_num = std::rand() % 25 + 1;	//	난수생성
 		com_num.push_back(random_num);
 		for (int j = 0; j < i; j++) {
-			if (com_num.at(i) == com_num.at(j)) {	// 만든수를 중복검사_컴퓨터
+			if (com_num[i] == com_num[j]) {	// 만든수를 중복검사_컴퓨터
 				com_num.pop_back();
 				i--;
 			}
