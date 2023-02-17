@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <vector>
+#include <iomanip>
 
 using std::cout;
 using std::cin;
@@ -25,32 +26,28 @@ int main() {
 	int X = 0;
 	int Y = 0;
 	int input;
-	int num = 1;	// 스타트지점의 값
 
 	cout << "마방진의 행 혹은 열의 수를 자연수로 입력해주세요. : ";
 	cin >> input;
 	vector<vector<int>> vMaBangJin(input, vector<int>(input, X));	// 입력값 받아서 크기 설정
 	X = input / 2;	// 시작점
 	Y = 0;
-	for (int i = 0; i < input; i++) {
-		for (int j = 0; j < input; j++) {
-			vMaBangJin[Y][X] = num;
-			// 이동
-			Y--; X++;
-			// 범위를 벗어났을때 범위 안으로 오게
-			check_range(&X, &Y, input);
-			// 숫자가 입력되어 있으면 복구 및 아래로 한칸
-			if (vMaBangJin[Y][X] >= 1 && vMaBangJin[Y][X] <= pow(input, 2)) {
-				X--; Y++; Y++;
-			}
-			// 범위를 벗어났을때 복구
-			check_range(&X, &Y, input);
-			num++;
+	for (int i = 0; i < pow(input,2) ; i++) {
+		vMaBangJin[Y][X] = i+1; 
+		// 이동
+		Y--; X++;
+		// 범위를 벗어났을때 범위 안으로 오게
+		check_range(&X, &Y, input);
+		// 숫자가 입력되어 있으면 복구 및 아래로 한칸
+		if (vMaBangJin[Y][X] >= 1 && vMaBangJin[Y][X] <= pow(input, 2)) {
+			X--; Y++; Y++;
 		}
+		// 범위를 벗어났을때 복구
+		check_range(&X, &Y, input);
 	}
 	for (int i = 0; i < input; i++) {
 		for (int j = 0; j < input; j++) {
-			cout << vMaBangJin[i][j] << " ";
+			cout << std::setw(3) << vMaBangJin[i][j];
 		}
 		cout << endl;
 	}
