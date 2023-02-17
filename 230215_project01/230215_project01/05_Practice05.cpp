@@ -21,7 +21,7 @@ int main() {
 
 	int* input_num = new int[num_count];	// 입력을 담을 배열
 	int* num = new int[num_count];	// 난수를 담을 배열
-	int* input = new int[num_count];	// 입력도 횟수에 맞게
+	int input;
 
 	// 컴퓨터 난수 생성
 	for (int i = 0; i < num_count; i++) {
@@ -36,15 +36,15 @@ int main() {
 	cout << endl << endl;
 	while (isGameOver == false) {
 		cout << "1 ~ 9 사이의 숫자 3개를 입력하세요. (이외의 숫자 : 종료)\n";
-			cin >> input[0] >> input[1] >> input[2];
 
 		for (int i = 0; i < num_count; i++) {
+			cin >> input;
 			// 범위 외 입력으로 탈출
-			if (input[i] <= 0 || input[i] > 9) {
+			if (input <= 0 || input > 9) {
 				cout << "범위 외의 입력입니다. 게임을 종료합니다." << endl;
 				return 0;
 			}
-			input_num[i] = input[i];
+			input_num[i] = input;
 		}
 		count++;	// 입력횟수 증가
 
@@ -66,7 +66,6 @@ int main() {
 	}
 	cout << count << "번 만에 맞췄습니다. " << endl;
 
-	delete[] input;
 	delete[] num;
 	delete[] input_num;
 }
