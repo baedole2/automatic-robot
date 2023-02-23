@@ -11,7 +11,7 @@ using namespace std;
 
 int main() {
 	srand(time(NULL));
-	int num_count = 3;	// 맞춰야할 숫자의 개수
+	const int num_count = 3;	// 맞춰야할 숫자의 개수
 	int strike = 0;
 	int ball = 0;
 	int count = 0;	// 시도한 횟수
@@ -19,8 +19,12 @@ int main() {
 
 	cout << "야구 게임" << endl;
 
-	int* input_num = new int[num_count];	// 입력을 담을 배열
-	int* num = new int[num_count];	// 난수를 담을 배열
+	int input_num[num_count] = {};	// const로 변수를 상수화하면 빈 배열을 지정할 수 있다.
+	int num[num_count] = {};
+
+	//int num_count = 3;
+	//int* input_num = new int[num_count];	// 입력을 담을 배열
+	//int* num = new int[num_count];	// 난수를 담을 배열
 	int input;
 
 	// 컴퓨터 난수 생성
@@ -65,7 +69,4 @@ int main() {
 		}
 	}
 	cout << count << "번 만에 맞췄습니다. " << endl;
-
-	delete[] num;
-	delete[] input_num;
 }
